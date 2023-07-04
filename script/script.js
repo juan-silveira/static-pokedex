@@ -5,6 +5,7 @@ const types        = document.querySelector('#types');
 const statNumber   = document.querySelectorAll('.stat-number');
 const barInner     = document.querySelectorAll('.bar-inner');
 const barOuter     = document.querySelectorAll('.bar-outer');
+const barBadge     = document.querySelectorAll('.bar-badge');
 const statDesc     = document.querySelectorAll('.stat-desc');
 const baseStats    = document.querySelector('#base-stats');
 const pokedex      = document.querySelector('#pokedex');
@@ -84,9 +85,17 @@ search.addEventListener('change', async (event) => {
     // Updates Stats and Stats bars
     pkmnData.stats.forEach((s, i) => {
         statNumber[i].innerHTML = s.base_stat.toString().padStart(3, '0');
-        barInner[i].style.width = `${s.base_stat}%`;
+        barInner[i].style.width = `${s.base_stat/1.5}%`;
         barInner[i].style.backgroundColor = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
         barOuter[i].style.backgroundColor = `rgba(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]}, 0.3)`;
         statDesc[i].style.color           = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
+        if(s.base_stat > 150) {
+            barBadge[i].style.display = "flex";
+            barBadge[i].innerHTML = 'MAX';
+            console.log(s.base_stat)
+        } else {
+            barBadge[i].style.display = "none";
+        }
+        
     });
 });
