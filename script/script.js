@@ -1,5 +1,7 @@
 const search       = document.querySelector('#search');
+const form         = document.querySelector('.form');
 const number       = document.querySelector('#number');
+const pokemonName  = document.querySelector('#pokemon-name');
 const pokemonImage = document.querySelector('#pokemon-image');
 const types        = document.querySelector('#types');
 const statNumber   = document.querySelectorAll('.stat-number');
@@ -9,6 +11,11 @@ const barBadge     = document.querySelectorAll('.bar-badge');
 const statDesc     = document.querySelectorAll('.stat-desc');
 const baseStats    = document.querySelector('#base-stats');
 const pokedex      = document.querySelector('#pokedex');
+const controls     = document.querySelector('#controls');
+const buttonPrev   = document.querySelector('.btn-prev');
+const buttonNext   = document.querySelector('.btn-next');
+
+let searchPokemon = 0;
 
 const typeColors = {
     "rock":     [182, 158,  49],
@@ -33,7 +40,7 @@ const typeColors = {
 
 const fetchApi = async (pkmnName) => {
     // Joining Pokémon names that has more than one word
-    pkmnNameApi = pkmnName.split(' ').join('-');
+    pkmnNameApi = pkmnName.toString().toLowerCase().split(' ').join('-');
 
     const response = await fetch('https://pokeapi.co/api/v2/pokemon/' + pkmnNameApi);
     
@@ -45,8 +52,30 @@ const fetchApi = async (pkmnName) => {
     return false;
 }
 
-search.addEventListener('change', async (event) => {
-    const pkmnData  = await fetchApi(event.target.value);
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    renderPokemon(search.value.toLowerCase());
+  });
+
+buttonPrev.addEventListener('click', () => {
+    if (searchPokemon > 1) {
+      searchPokemon -= 1;
+      renderPokemon(searchPokemon);
+      document.getElementById('search').value = '';
+    }
+  });
+  
+  buttonNext.addEventListener('click', () => {
+    searchPokemon += 1;
+    renderPokemon(searchPokemon);
+    document.getElementById('search').value = '';
+  });
+
+const renderPokemon = async (pokemon) => {
+    pokemonName.innerHTML = 'Loading...';
+    number.innerHTML = '';
+
+    const pkmnData  = await fetchApi(pokemon);
 
     // Validation when Pokémon does not exist
     if (!pkmnData) {
@@ -54,13 +83,22 @@ search.addEventListener('change', async (event) => {
         return;
     }
 
+    // Variable receives this pokemon id
+    searchPokemon = pkmnData.id;
+
     // Main Pokémon color, in order to change UI theme
     const mainColor = typeColors[pkmnData.types[0].type.name];
+    
     baseStats.style.color         = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
     pokedex.style.backgroundColor = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
+    controls.style.backgroundColor = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
 
     // For debugging - Will be removed later on
-    console.log(pkmnData);
+    // console.log(pkmnData);
+
+    // Sets pokemon name at the top of the page
+
+    pokemonName.innerHTML = pkmnData.name.toString();
 
     // Sets pokemon # at the top of the page
     number.innerHTML = '#' + pkmnData.id.toString().padStart(3, '0');
@@ -92,10 +130,9 @@ search.addEventListener('change', async (event) => {
         if(s.base_stat > 150) {
             barBadge[i].style.display = "flex";
             barBadge[i].innerHTML = 'MAX';
-            console.log(s.base_stat)
         } else {
             barBadge[i].style.display = "none";
         }
         
     });
-});
+};
