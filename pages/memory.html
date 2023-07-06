@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../style/style.css"></link>
     <link rel="stylesheet" href="../style/menu.css"></link>
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Pokédex - Jogo da Memória</title>
 </head>
 
@@ -17,110 +17,16 @@
         <img class="logo" src="../images/logo.svg">
         <a href="../index.html">Home</a>
         <a href="./about.html">Sobre</a>
-        <a href="./pokedex.html">Pokedex</a>
+        <a href="./pokedex.html">Pokédex</a>
         <a class="active" href="./memory.html">Jogo da Memória</a>
         <a href="./contact.html">Contato</a>
         <a href="javascript:void(0);" class="icon" onclick="hamburguerMenu()">
             <i class="fa fa-bars"></i>
         </a>
     </div>
-    <div id="wrapper">
-        <div id="controls">
-            <button class="button btn-prev">Prev &lt;</button>
-            <form class="form">
-                <input type="search" id="search" placeholder="Digite o nome ou id" required />
-            </form>
-            <button class="button btn-next">Next &gt;</button>
-        </div>
-        <div id="pokedex">
+    
+    <h1 style="text-align: center; color: white;">Jogo da Memória</h1>
 
-            <div id="top">
-                <div id="top-bar">
-                    <span id="pokemon-name">Pokeball</span>
-                    <span id="number">#???</span>
-                </div>
-                <div id="poke-image-placeholder">
-                    <img src="../images/1.png" id="pokemon-image" alt="pokemon-image" />
-                </div>
-            </div>
-            <div id="data">
-                <div id="types">
-                    <span style="background-color: rgb(0, 0, 0);" class="type">
-                        ???
-                    </span>
-                    <span style="background-color: rgb(0, 0, 0);" class="type">
-                        ???
-                    </span>
-                </div>
-
-                <h4 id="base-stats" style="color: rgb(0, 0, 0);">Base Stats</h4>
-
-                <div id="stats">
-                    <div class="stat-row">
-                        <div class="stat-desc">HP</div>
-                        <div class="stat-number">000</div>
-                        <div class="stat-bar">
-                            <div class="bar-outer">
-                                <div class="bar-inner" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="bar-badge" style="display: none"></div>
-                    </div>
-                    <div class="stat-row">
-                        <div class="stat-desc">ATK</div>
-                        <div class="stat-number">000</div>
-                        <div class="stat-bar">
-                            <div class="bar-outer">
-                                <div class="bar-inner" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="bar-badge" style="display: none"></div>
-                    </div>
-                    <div class="stat-row">
-                        <div class="stat-desc">DEF</div>
-                        <div class="stat-number">000</div>
-                        <div class="stat-bar">
-                            <div class="bar-outer">
-                                <div class="bar-inner" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="bar-badge" style="display: none"></div>
-                    </div>
-                    <div class="stat-row">
-                        <div class="stat-desc">SATK</div>
-                        <div class="stat-number">000</div>
-                        <div class="stat-bar">
-                            <div class="bar-outer">
-                                <div class="bar-inner" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="bar-badge" style="display: none"></div>
-                    </div>
-                    <div class="stat-row">
-                        <div class="stat-desc">SDEF</div>
-                        <div class="stat-number">000</div>
-                        <div class="stat-bar">
-                            <div class="bar-outer">
-                                <div class="bar-inner" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="bar-badge" style="display: none"></div>
-                    </div>
-                    <div class="stat-row">
-                        <div class="stat-desc">SPD</div>
-                        <div class="stat-number">000</div>
-                        <div class="stat-bar">
-                            <div class="bar-outer">
-                                <div class="bar-inner" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="bar-badge" style="display: none"></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
     <script src="../script/script.js"></script>
     <script src="../script/responsive-menu.js"></script>
 </body>
