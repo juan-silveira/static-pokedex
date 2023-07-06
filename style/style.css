@@ -34,11 +34,13 @@ form {
     font-size: 0.8rem;
     color: white;
     margin-bottom: 0.15rem;
+    -webkit-appearance: none!important;
 }
 
 .button-submit:active {
     box-shadow: inset -4px 4px 0 rgba(0, 0, 0, 0.3);
     font-size: 0.7rem;
+    -webkit-appearance: none!important;
 }
 
 .button {
