@@ -6,13 +6,16 @@
 
 .topnav {
     overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
     background-color: #333;
 }
 
 .topnav a {
     float: left;
     display: block;
-    color:  white;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
