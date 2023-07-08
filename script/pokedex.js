@@ -12,6 +12,13 @@ const barInner = document.querySelectorAll('.bar-inner');
 const barOuter = document.querySelectorAll('.bar-outer');
 const barBadge = document.querySelectorAll('.bar-badge');
 const statDesc = document.querySelectorAll('.stat-desc');
+
+const statTNumber = document.querySelector('.stat-tnumber');
+const statTotal = document.querySelector('.stat-total');
+const barTOuter = document.querySelector('#bar-touter');
+const barTInner = document.querySelector('#bar-tinner');
+const barTBadge = document.querySelector('#bar-tbadge');
+
 const baseStats = document.querySelector('#base-stats');
 const pokedex = document.querySelector('#pokedex');
 const controls = document.querySelector('#controls');
@@ -101,6 +108,7 @@ const renderPokemon = async (pokemon) => {
 
     statBmi.style.color = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
     baseStats.style.color = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
+    statTotal.style.color = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
     pokedex.style.backgroundColor = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
     controls.style.backgroundColor = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
 
@@ -195,13 +203,16 @@ const renderPokemon = async (pokemon) => {
     });
 
     // Updates Stats and Stats bars
+    let total = 0;
     pkmnData.stats.forEach((s, i) => {
+
+        total = total + +pkmnData.stats[i]["base_stat"];
         statNumber[i].innerHTML = s.base_stat.toString().padStart(3, '0');
-        barInner[i].style.width = `${s.base_stat / 1.5}%`;
+        barInner[i].style.width = `${s.base_stat / 2.5}%`;
         barInner[i].style.backgroundColor = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
         barOuter[i].style.backgroundColor = `rgba(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]}, 0.3)`;
         statDesc[i].style.color = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
-        if (s.base_stat > 150) {
+        if (s.base_stat >= 250) {
             barBadge[i].style.display = "flex";
             barBadge[i].innerHTML = 'MAX';
         } else {
@@ -209,4 +220,14 @@ const renderPokemon = async (pokemon) => {
         }
 
     });
+    statTNumber.innerHTML = total;
+    barTInner.style.width = `${total / 7.2}%`;
+    barTInner.style.backgroundColor = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
+    barTOuter.style.backgroundColor = `rgba(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]}, 0.3)`;
+    if (+total >= 720) {
+        barTBadge.style.display = "flex";
+        barTBadge.innerHTML = 'MAX';
+    } else {
+        barTBadge.style.display = "none";
+    }
 };
