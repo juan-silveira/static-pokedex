@@ -116,7 +116,7 @@ const renderPokemon = async (pokemon) => {
     // console.log(pkmnData);
 
     // Sets pokemon name at the top of the page
-    pokemonName.innerHTML = pkmnData.name.toString();
+    pokemonName.innerHTML = pkmnData.name.toString().replace('-', ' ');
 
     // Sets pokemon # at the top of the page
     number.innerHTML = '#' + pkmnData.id.toString().padStart(3, '0');
@@ -230,4 +230,4 @@ const renderPokemon = async (pokemon) => {
     } else {
         barTBadge.style.display = "none";
     }
-};
+}; 
