@@ -11,6 +11,7 @@ const statBmi = document.querySelector('.stat-bmi');
 const barInner = document.querySelectorAll('.bar-inner');
 const barOuter = document.querySelectorAll('.bar-outer');
 const barBadge = document.querySelectorAll('.bar-badge');
+const statBar = document.querySelector('.stat-bar');
 const statDesc = document.querySelectorAll('.stat-desc');
 
 const statTNumber = document.querySelector('.stat-tnumber');
@@ -212,22 +213,10 @@ const renderPokemon = async (pokemon) => {
         barInner[i].style.backgroundColor = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
         barOuter[i].style.backgroundColor = `rgba(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]}, 0.3)`;
         statDesc[i].style.color = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
-        if (s.base_stat >= 250) {
-            barBadge[i].style.display = "flex";
-            barBadge[i].innerHTML = 'MAX';
-        } else {
-            barBadge[i].style.display = "none";
-        }
 
     });
     statTNumber.innerHTML = total;
     barTInner.style.width = `${total / 7.2}%`;
     barTInner.style.backgroundColor = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
     barTOuter.style.backgroundColor = `rgba(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]}, 0.3)`;
-    if (+total >= 720) {
-        barTBadge.style.display = "flex";
-        barTBadge.innerHTML = 'MAX';
-    } else {
-        barTBadge.style.display = "none";
-    }
 }; 

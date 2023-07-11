@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/style.css">
+    </link>
+    <link rel="stylesheet" href="../style/menu.css">
+    </link>
+    <link rel="stylesheet" href="../style/who.css">
+    </link>
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Pokédex - Contato</title>
+</head>
+
+<body>
+    <div class="topnav" id="myTopnav">
+        <img class="logo" src="../images/logo.svg">
+        <a href="../index.html">Home</a>
+        <a href="./about.html">Sobre</a>
+        <a href="./pokedex.html">Pokédex</a>
+        <a href="./memory.html">Jogo da Memória</a>
+        <a class="active" href="./who.html">Quem é esse Pokémon?</a>
+        <a href="javascript:void(0);" class="icon" onclick="hamburguerMenu()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <div class="main">
+        <div id="who">
+            <div id="who-top">
+                <h2 id="who-title">Quem é esse Pokémon?</h2>
+                <div id="who-image-placeholder">
+                    <img src="../images/whobg.png" id="who-bg" alt="who-bg" />
+                    <img src="../images/who.png" id="who-image" alt="who-image" />
+                </div>
+                <div id="who-top-bar">
+                    <span id="who-name"></span>
+                    <span id="who-number"></span>    
+                </div>
+            </div>
+
+            <div id="who-data">
+                    <form id="who-form">
+                        <input type="text" id="who-try" placeholder="Digite o nome do Pokémon">
+                    </form>
+                <button id="who-is">Não sei qual é o pokemon!</button>
+                <button id="try-again">Tentar novamente</button>
+                <div class="tips">
+                    <div class="button-row">
+                        <button class="tip-button-1">Dica 1</button>
+                        <button class="tip-button-2">Dica 2</button>
+                        <button class="tip-button-3">Dica 3</button>
+                    </div>
+                    <div class="tips-row">
+                        <p class="tip-text-1"></p>
+                        <p class="tip-text-2"></p>
+                        <p class="tip-text-3"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script/who.js"></script>
+    <script src="../script/responsive-menu.js"></script>
+</body>
+
+</html>

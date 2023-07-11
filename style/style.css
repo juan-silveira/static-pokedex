@@ -197,7 +197,7 @@ form {
 }
 
 #stats {
-    width: 90%;
+    width: 100%;
     font-size: 0.8rem;
     gap: 0.6rem;
 }
@@ -206,13 +206,19 @@ form {
     display: flex;
 }
 
-.stat-desc,
-.stat-total,
-.stat-number {
-    width: 13%;
+.stat-desc {
+    width: 14%;
 }
 
-.stat-total, .stat-desc {
+.stat-total {
+    width: 9.9%;
+}
+
+.stat-number {
+    width: 10%;
+}
+
+.stat-desc {
     color: rgb(50, 50, 50);
     font-weight: bold;
     text-align: right;
@@ -220,16 +226,24 @@ form {
     transition: color 0.5s ease-in-out;
 }
 
+.stat-total {
+    color: rgb(50, 50, 50);
+    font-weight: bold;
+    text-align: right;
+    margin-right: 0.6rem;
+    margin-left: 1rem;
+    transition: color 0.5s ease-in-out;
+}
+
 .stat-number {
     border-left: 1px solid gray;
-    text-align: right;
+    text-align: center;
 }
 
 .stat-bar {
-    width: 55%;
+    width: 68%;
     display: flex;
     align-items: center;
-    padding-left: 0.6rem;
 }
 
 .bar-outer {
@@ -245,21 +259,6 @@ form {
     background-color: rgb(116, 203, 72);
     border-radius: 4px;
     transition: 0.5s ease-in-out;
-}
-
-.bar-badge {
-    background-color: red;
-    border-radius: 20px;
-    transition: 0.5s ease-in-out;
-    color: white;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
-    margin-left: 0.6rem;
-    ;
-    font-size: smaller;
-    font-weight: 700;
-    height: 1rem;
-    margin-top: 0.05rem;
 }
 
 #base-stats {
