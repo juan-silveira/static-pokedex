@@ -148,6 +148,7 @@ const revealTip3 = () => {
 const renderPokemon = async () => {
 
     const pokemon = Math.floor(Math.random() * 150) + 1;
+    console.log(pokemon);
 
     const pkmnData = await fetchApi(pokemon);
 
@@ -157,7 +158,7 @@ const renderPokemon = async () => {
 
     // Sets pokemon image
     whoImage.src = pkmnData.sprites.other.home.front_default;
-    whoImage.style.display = "block"
+    whoImage.style.display = "block";
 }
 
 const resetGame = () => {

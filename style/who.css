@@ -41,6 +41,7 @@
     background-color: rgba(116, 203, 72, 0.8);
     padding: 0.15rem 3rem 0.15rem 3rem;
     border-radius: 0.6rem;
+    cursor: pointer;
 }
 
 #who-number {
@@ -84,6 +85,7 @@
     background-color: orange;
     margin-bottom: 0.79rem;
     transform: translateY(-0.6rem);
+    cursor: pointer;
 }
 
 #try-again {
@@ -91,6 +93,7 @@
     color: #FFCB05;
     background-color: #395FA9;
     transform: translateY(-1.5rem);
+    cursor: pointer;
 }
 
 .button-row {
@@ -100,6 +103,10 @@
 
 .tips-row {
     color: white;
+}
+
+.tip-button-1, .tip-button-2, .tip-button-3 {
+    cursor: pointer;
 }
 
 .tip-text-1, .tip-text-2, .tip-text-3 {
