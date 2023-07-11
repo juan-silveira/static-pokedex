@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style/reset.css"></link>
+  <link rel="stylesheet" href="../style/memory.css"></link>
+  <link rel="stylesheet" href="../style/modal.css"></link>
+  <link rel="stylesheet" href="../style/style.css"></link>
+  <link rel="stylesheet" href="../style/menu.css"></link>
+  <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Pokédex - Jogo da Memória</title>
+</head>
+
+<body>
+  <div class="topnav" id="myTopnav">
+    <img class="logo" src="../images/logo.svg">
+    <a href="../index.html">Home</a>
+    <a href="./about.html">Sobre</a>
+    <a href="./pokedex.html">Pokédex</a>
+    <a class="active" href="./memory.html">Jogo da Memória</a>
+    <a href="./who.html">Quem é esse Pokémon?</a>
+    <a href="javascript:void(0);" class="icon" onclick="hamburguerMenu()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+  <main>
+    <header>
+      <nav>
+        <button id="nameBtn">Trocar Nome</button>
+        <button id="resetRecordBtn">Resetar Recorde</button>
+        <button id="resetGameBtn">Reiniciar Jogo</button>
+      </nav>
+      <div class="record">
+        <span>Recorde:</span>
+        <span class="record-player"></span>
+        <span class="record-time">00</span>
+      </div>
+      <div class="scoreboard">
+        <span class="player"></span>
+        <span>Tempo: <span class="timer">00</span></span>
+      </div>
+    </header>
+
+    <div class="grid"></div>
+
+  </main>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Jogo concluído!</h2>
+      </div>
+      <div class="modal-body">
+        <p class="modal-body-p1"></p>
+        <p class="modal-body-p2"></p>
+      </div>
+      <div class="modal-footer">
+        <button id="resetGameModal">Tentar novamente</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../script/memory.js"></script>
+  <script src="../script/modal.js"></script>
+  <script src="../script/buttons-memory.js"></script>
+  <script src="../script/responsive-menu.js"></script>
+
+</body>
+
+</html>

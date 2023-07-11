@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/style.css"></link>
     <link rel="stylesheet" href="../style/menu.css"></link>
+    <link rel="stylesheet" href="../style/reset.css"></link>
+    <link rel="stylesheet" href="../style/login.css"></link>
+
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Pokédex - Jogo da Memória</title>
@@ -26,10 +29,21 @@
     </div>
     
     <div class="main">
-        <h1 style="text-align: center; color: white;">Jogo da Memória</h1>
+        <form class="login-form">
+
+            <div class="login__header">
+              <img src="../images/pokemon.svg" alt="logo">
+              <img src="../images/memory-game.png" alt="game icon">
+              <h1>Jogo da Memória</h1>
+            </div>
+            <label for="name">Digite o seu nome para começar:</label>
+            <input type="text" placeholder="Nome (4 caracteres mínimo)" class="login__input" id="name">
+            <button type="submit" class="login__button" disabled>Jogar</button>
+        
+          </form>
     </div>
 
-    <script src="../script/script.js"></script>
+    <script src="../script/login.js"></script>
     <script src="../script/responsive-menu.js"></script>
 </body>
 
