@@ -42,6 +42,12 @@ const checkEndGame = ({ target }) => {
     }
 }
 
+const blockEnterSubmit = (event) => {
+    if (event.which == 13) {
+        event.preventDefault();
+    }
+}
+
 const revealPokemon = () => {
     whoTry.style.display = "none";
     whoImage.style.filter = "brightness(100%)";
@@ -63,68 +69,81 @@ const revealTip2 = () => {
 }
 
 const revealTip3 = () => {
-    let type = whoData.types[0].type.name;
-
-    switch (type) {
-        case "rock":
-            type = "pedra"
-            break;
-        case "ghost":
-            type = "fantasma"
-            break;
-        case "steel":
-            type = "aço"
-            break;
-        case "water":
-            type = "água"
-            break;
-        case "grass":
-            type = "grama"
-            break;
-        case "psychic":
-            type = "psíquico"
-            break;
-        case "ice":
-            type = "gelo"
-            break;
-        case "dark":
-            type = "sombrio"
-            break;
-        case "fairy":
-            type = "fada"
-            break;
-        case "fighting":
-            type = "lutador"
-            break;
-        case "flying":
-            type = "voador"
-            break;
-        case "poison":
-            type = "veneno"
-            break;
-        case "ground":
-            type = "terrestre"
-            break;
-        case "bug":
-            type = "inseto"
-            break;
-        case "fire":
-            type = "fogo"
-            break;
-        case "electric":
-            type = "elétrico"
-            break;
-        case "dragon":
-            type = "dragão"
-            break;
-        default:
-            type = "normal"
-            break;
+    let len = whoData.name.length;
+    let position = Math.floor(Math.random() * len) + 1;
+    if(position == 1){
+        position = position + 1;
     }
-    tipButton3.setAttribute('disabled', '');
-    tipText3.innerHTML = `<strong>Dica 3:</strong> O pokémon é do tipo ${type.toUpperCase()}`;
+    console.log(position)
+    let letter = whoData.name.split("")[position -1];
+    // tipButton3.setAttribute('disabled', '');
+    tipText3.innerHTML = `<strong>Dica 3:</strong> A letra "${letter}" está na posição ${position} `;
     tipText3.style.display = "block";
 }
+
+// const revealTip3 = () => {
+//     let type = whoData.types[0].type.name;
+
+//     switch (type) {
+//         case "rock":
+//             type = "pedra"
+//             break;
+//         case "ghost":
+//             type = "fantasma"
+//             break;
+//         case "steel":
+//             type = "aço"
+//             break;
+//         case "water":
+//             type = "água"
+//             break;
+//         case "grass":
+//             type = "grama"
+//             break;
+//         case "psychic":
+//             type = "psíquico"
+//             break;
+//         case "ice":
+//             type = "gelo"
+//             break;
+//         case "dark":
+//             type = "sombrio"
+//             break;
+//         case "fairy":
+//             type = "fada"
+//             break;
+//         case "fighting":
+//             type = "lutador"
+//             break;
+//         case "flying":
+//             type = "voador"
+//             break;
+//         case "poison":
+//             type = "veneno"
+//             break;
+//         case "ground":
+//             type = "terrestre"
+//             break;
+//         case "bug":
+//             type = "inseto"
+//             break;
+//         case "fire":
+//             type = "fogo"
+//             break;
+//         case "electric":
+//             type = "elétrico"
+//             break;
+//         case "dragon":
+//             type = "dragão"
+//             break;
+//         default:
+//             type = "normal"
+//             break;
+//     }
+//     tipButton3.setAttribute('disabled', '');
+//     tipText3.innerHTML = `<strong>Dica 3:</strong> O pokémon é do tipo ${type.toUpperCase()}`;
+//     tipText3.style.display = "block";
+// }
 
 const renderPokemon = async () => {
 
@@ -150,6 +169,7 @@ window.onload = () => {
 }
 
 whoTry.addEventListener('input', checkEndGame);
+whoTry.addEventListener('keypress', blockEnterSubmit);
 tryAgain.addEventListener('click', resetGame);
 whoIs.addEventListener('click', revealPokemon);
 tipButton1.addEventListener('click', revealTip1);
