@@ -74,9 +74,8 @@ const revealTip3 = () => {
     if(position == 1){
         position = position + 1;
     }
-    console.log(position)
     let letter = whoData.name.split("")[position -1];
-    // tipButton3.setAttribute('disabled', '');
+    tipButton3.setAttribute('disabled', '');
     tipText3.innerHTML = `<strong>Dica 3:</strong> A letra "${letter}" está na posição ${position} `;
     tipText3.style.display = "block";
 }
@@ -84,7 +83,6 @@ const revealTip3 = () => {
 const renderPokemon = async () => {
 
     const pokemon = Math.floor(Math.random() * 150) + 1;
-    console.log(pokemon);
 
     const pkmnData = await fetchApi(pokemon);
 

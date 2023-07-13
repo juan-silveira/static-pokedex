@@ -141,7 +141,6 @@ const createCard = (character) => {
   const pkmnName = createElement('p', 'pkmn-name')
 
   pkmnImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${character}.png`;
-  console.log(pkmnNames[character-1])
   pkmnName.innerHTML = pkmnNames[character - 1];
 
   card.appendChild(front);
@@ -160,8 +159,10 @@ const loadGame = async () => {
 
   const pkmnData = await fetchApi();
   pkmnData.results.forEach((s, i) => {
-    pkmnNames.push(pkmnData.results[i].name);
+    pkmnNames.push(pkmnData.results[i].name.replace("-", " "));
   });
+
+  console.log(pkmnNames)
 
   const duplicateCharacters = [...characters, ...characters];
 
