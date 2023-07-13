@@ -81,70 +81,6 @@ const revealTip3 = () => {
     tipText3.style.display = "block";
 }
 
-// const revealTip3 = () => {
-//     let type = whoData.types[0].type.name;
-
-//     switch (type) {
-//         case "rock":
-//             type = "pedra"
-//             break;
-//         case "ghost":
-//             type = "fantasma"
-//             break;
-//         case "steel":
-//             type = "aço"
-//             break;
-//         case "water":
-//             type = "água"
-//             break;
-//         case "grass":
-//             type = "grama"
-//             break;
-//         case "psychic":
-//             type = "psíquico"
-//             break;
-//         case "ice":
-//             type = "gelo"
-//             break;
-//         case "dark":
-//             type = "sombrio"
-//             break;
-//         case "fairy":
-//             type = "fada"
-//             break;
-//         case "fighting":
-//             type = "lutador"
-//             break;
-//         case "flying":
-//             type = "voador"
-//             break;
-//         case "poison":
-//             type = "veneno"
-//             break;
-//         case "ground":
-//             type = "terrestre"
-//             break;
-//         case "bug":
-//             type = "inseto"
-//             break;
-//         case "fire":
-//             type = "fogo"
-//             break;
-//         case "electric":
-//             type = "elétrico"
-//             break;
-//         case "dragon":
-//             type = "dragão"
-//             break;
-//         default:
-//             type = "normal"
-//             break;
-//     }
-//     tipButton3.setAttribute('disabled', '');
-//     tipText3.innerHTML = `<strong>Dica 3:</strong> O pokémon é do tipo ${type.toUpperCase()}`;
-//     tipText3.style.display = "block";
-// }
-
 const renderPokemon = async () => {
 
     const pokemon = Math.floor(Math.random() * 150) + 1;
@@ -176,3 +112,4 @@ whoIs.addEventListener('click', revealPokemon);
 tipButton1.addEventListener('click', revealTip1);
 tipButton2.addEventListener('click', revealTip2);
 tipButton3.addEventListener('click', revealTip3);
+whoImage.addEventListener('contextmenu', event => event.preventDefault());

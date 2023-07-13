@@ -13,18 +13,19 @@ const modal = document.getElementById("myModal");
 const closeModal = document.getElementsByClassName("close")[0];
 
 // When the user clicks on <span> (x), close the modal
-closeModal.onclick = function() {
+closeModal.onclick = function () {
   modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
 
 const characters = [];
+const pkmnNames = [];
 
 const populateArray = () => {
   let rNum = 0;
@@ -55,7 +56,7 @@ const checkEndGame = () => {
     localStorage.setItem('lastGameTime', +timer.innerHTML);
     var items = JSON.parse(localStorage.getItem('record'));
     if (!localStorage.getItem('record') || +timer.innerHTML < items.time) {
-      localStorage.setItem('record', JSON.stringify({"player": localStorage.getItem('player'), "time": +timer.innerHTML}));
+      localStorage.setItem('record', JSON.stringify({ "player": localStorage.getItem('player'), "time": +timer.innerHTML }));
     }
     modal.style.display = "block";
     modalBodyP1.innerHTML = `Parabéns ${localStorage.getItem('player')}!`;
@@ -120,16 +121,33 @@ const revealCard = ({ target }) => {
   }
 }
 
+const fetchApi = async () => {
+  const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1000&offset=0');
+
+  if (response.status === 200) {
+    const pkmnData = await response.json();
+    return pkmnData;
+  }
+
+  return false;
+}
+
 const createCard = (character) => {
 
   const card = createElement('div', 'card');
   const front = createElement('div', 'face front');
   const back = createElement('div', 'face back');
+  const pkmnImage = createElement('img', 'pkmn-image')
+  const pkmnName = createElement('p', 'pkmn-name')
 
-  front.style.backgroundImage = `url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${character}.png')`;
+  pkmnImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${character}.png`;
+  console.log(pkmnNames[character-1])
+  pkmnName.innerHTML = pkmnNames[character - 1];
 
   card.appendChild(front);
   card.appendChild(back);
+  front.appendChild(pkmnImage);
+  front.appendChild(pkmnName);
 
   card.addEventListener('click', revealCard);
   card.setAttribute('data-character', character)
@@ -137,8 +155,14 @@ const createCard = (character) => {
   return card;
 }
 
-const loadGame = () => {
+const loadGame = async () => {
   populateArray();
+
+  const pkmnData = await fetchApi();
+  pkmnData.results.forEach((s, i) => {
+    pkmnNames.push(pkmnData.results[i].name);
+  });
+
   const duplicateCharacters = [...characters, ...characters];
 
   const shuffledArray = duplicateCharacters.sort(() => Math.random() - 0.5);

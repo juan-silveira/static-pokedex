@@ -79,6 +79,21 @@ button {
 
 .front {
   transform: rotateY(180deg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url(../images/pokeball1.png);
+}
+
+.pkmn-image {
+  width: 100%;
+}
+
+.pkmn-name {
+  color: white;
+  /* transform: rotateY(180deg); */
+  text-align: center;
+  margin-top: auto;
+  text-transform: capitalize;
 }
 
 .back {
@@ -98,6 +113,23 @@ button {
 @media screen and (max-width:920px) {
   .grid {
     grid-template-columns: repeat(5, 1fr);
+  }
+}
 
+@media screen and (max-width:620px) {
+  .pkmn-name {
+    font-size: small;
+  }
+}
+
+@media screen and (max-width:540px) {
+  .pkmn-name {
+    font-size: x-small;
+  }
+}
+
+@media screen and (max-width:430px) {
+  .pkmn-name {
+    display:none;
   }
 }
