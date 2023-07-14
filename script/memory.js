@@ -162,8 +162,6 @@ const loadGame = async () => {
     pkmnNames.push(pkmnData.results[i].name.replace("-", " "));
   });
 
-  console.log(pkmnNames)
-
   const duplicateCharacters = [...characters, ...characters];
 
   const shuffledArray = duplicateCharacters.sort(() => Math.random() - 0.5);

@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/style.css"></link>
-    <link rel="stylesheet" href="../style/menu.css"></link>
-    <link rel="stylesheet" href="../style/snackbar.css"></link>
+    <link rel="stylesheet" href="../style/style.css">
+    </link>
+    <link rel="stylesheet" href="../style/pokedex.css">
+    </link>
+    <link rel="stylesheet" href="../style/menu.css">
+    </link>
+    <link rel="stylesheet" href="../style/snackbar.css">
+    </link>
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Pokédex - Pokédex</title>
@@ -28,8 +33,10 @@
     <div id="wrapper">
         <div id="controls">
             <button class="button btn-prev"><i class="fa fa-arrow-left"></i></button>
-            <form class="form">
-                <input type="search" id="search" autocomplete="off" placeholder="Digite o nome ou id" required />
+            <form autocomplete="off" class="form">
+                <div class="autocomplete">
+                    <input type="search" id="search" placeholder="Digite o nome ou id" required />
+                </div>
                 <button class="button-submit" type="submit"><i class='fa fa-search'></i></button>
             </form>
             <button class="button btn-next"><i class="fa fa-arrow-right"></i></button>

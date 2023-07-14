@@ -50,10 +50,16 @@ const blockEnterSubmit = (event) => {
 
 const revealPokemon = () => {
     whoTry.style.display = "none";
+    whoIs.style.display = "none";
     whoImage.style.filter = "brightness(100%)";
     whoTopBar.style.display = "flex";
-    whoIs.style.display = "none";
     tryAgain.style.display = "inline-block";
+    tipButton1.style.display = "none";
+    tipButton2.style.display = "none";
+    tipButton3.style.display = "none";
+    tipText1.style.display = "none";
+    tipText2.style.display = "none";
+    tipText3.style.display = "none";
 }
 
 const revealTip1 = () => {
