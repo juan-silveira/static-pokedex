@@ -2,19 +2,17 @@ main {
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* background-image: url('../images/bg1.jpg'); */
-  margin-top: 50px;
   background-color: #1d1d2e;
   background-size: cover;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  padding: 20px 20px 0px;
+  padding: 5% 5% 0px;
 }
 
 header {
   background-color: rgba(255, 255, 255, 0.8);
-  font-size: 1.2em;
+  font-size: 1rem;
   width: 100%;
   max-width: 1200px;
   padding: 5px;
@@ -90,7 +88,6 @@ button {
 
 .pkmn-name {
   color: white;
-  /* transform: rotateY(180deg); */
   text-align: center;
   margin-top: auto;
   text-transform: capitalize;
@@ -110,7 +107,13 @@ button {
   opacity: 0.5;
 }
 
-@media screen and (max-width:920px) {
+@media screen and (max-width:980px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media screen and (max-width:800px) {
   .grid {
     grid-template-columns: repeat(5, 1fr);
   }
@@ -128,8 +131,20 @@ button {
   }
 }
 
-@media screen and (max-width:430px) {
+@media screen and (max-width: 500px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width:400px) {
   .pkmn-name {
-    display:none;
+    font-size: xx-small;
+  }
+}
+
+@media screen and (max-width:320px) {
+  .pkmn-name {
+    display: none;
   }
 }
