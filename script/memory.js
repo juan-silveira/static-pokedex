@@ -140,7 +140,7 @@ const createCard = (character) => {
   const pkmnImage = createElement('img', 'pkmn-image')
   const pkmnName = createElement('p', 'pkmn-name')
 
-  pkmnImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${character}.png`;
+  pkmnImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${character}.png`;
   pkmnName.innerHTML = pkmnNames[character - 1];
 
   card.appendChild(front);

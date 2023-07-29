@@ -64,7 +64,7 @@ const fetchApi = async (pkmnName) => {
 }
 
 const fetchPkmnList = async () => {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=905&offset=0');
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1010&offset=0');
 
     if (response.status === 200) {
         const pkmnData = await response.json();
@@ -134,7 +134,7 @@ const renderPokemon = async (pokemon) => {
     number.innerHTML = '#' + pkmnData.id.toString().padStart(3, '0');
 
     // Sets pokemon image
-    pokemonImage.src = pkmnData.sprites.other.home.front_default;
+    pokemonImage.src = pkmnData.sprites.other["official-artwork"].front_default;
 
     // Sets pokemon weight 
     statWeight.innerHTML = (pkmnData.weight / 10).toString();
