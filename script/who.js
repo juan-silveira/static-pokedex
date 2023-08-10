@@ -88,7 +88,7 @@ const revealTip3 = () => {
 
 const renderPokemon = async () => {
 
-    const pokemon = Math.floor(Math.random() * 1010) + 1;
+    const pokemon = Math.floor(Math.random() * 151) + 1;
 
     const pkmnData = await fetchApi(pokemon);
 
